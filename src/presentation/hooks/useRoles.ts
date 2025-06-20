@@ -1,15 +1,12 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { useCallback, useState } from "react"
-import { CountryModel } from "../../core/models/country.model";
-import { createCountryAction } from "../../core/actions/countries/create-country.action";
 import { useNavigate } from "react-router";
-import { editCountryAction } from "../../core/actions/countries/edit-country.action";
-import { deleteCountryAction } from "../../core/actions/countries/delete-country.action";
 import { getPaginationRolesAction } from "../../core/actions/roles/get-pagination-roles.action";
 import { getOneRoleAction } from "../../core/actions/roles/get-one-role.action";
 import { RoleModel } from "../../core/models/role.model";
 import { createRoleAction } from "../../core/actions/roles/create-role.action";
 import { editRoleAction } from "../../core/actions/roles/edit-role.action";
+import { deleteRoleAction } from "../../core/actions/roles/delete-role.action";
 
 export const useRoles = (roleId?: string) => {
   
@@ -59,12 +56,12 @@ export const useRoles = (roleId?: string) => {
     },
   });
 
-    const deleteCountryMutation = useMutation({
-    mutationFn: () => deleteCountryAction(countryId!),
+    const deleteRoleMutation = useMutation({
+    mutationFn: () => deleteRoleAction(roleId!),
     onSuccess: (data) => {
       if(data.status) {
-        refreshCountries();
-        navigate("/countries");
+        refreshRoles();
+        navigate("/roles");
       }
     },
     onError: (data) => {
@@ -72,9 +69,9 @@ export const useRoles = (roleId?: string) => {
     },
   });
 
-  const refetch = countriesPaginationQuery.refetch;
+  const refetch = rolesPaginationQuery.refetch;
 
-  const refreshCountries = useCallback(() => {
+  const refreshRoles = useCallback(() => {
     refetch();
   }, [refetch]);
 
@@ -83,16 +80,16 @@ export const useRoles = (roleId?: string) => {
     page,
     pageSize,
     searchTerm,
-    countriesPaginationQuery,
-    oneCountryQuery,
-    createCountryMutation,
-    editCountryMutation,
-    deleteCountryMutation,
+    rolesPaginationQuery,
+    oneRoleQuery,
+    createRoleMutation,
+    editRoleMutation,
+    deleteRoleMutation,
 
     // Methods
     setPage,
     setPageSize,
     setSearchTerm,
-    refreshCountries,
+    refreshRoles,
   }
 }
