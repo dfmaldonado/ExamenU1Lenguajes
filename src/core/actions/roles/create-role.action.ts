@@ -1,19 +1,22 @@
 import { AxiosError } from "axios";
 import { ApiResponse } from "../../../infraestructure/interfaces/api.response";
-import { CountryResponse } from "../../../infraestructure/interfaces/country.response";
 import { ApiErrorResponse } from "../../../infraestructure/interfaces/api-error.response";
 import { personsApi } from "../../api/persons.api";
+import { RoleResponse } from "../../../infraestructure/interfaces/role.response";
+import { RoleModel } from "../../models/role.model";
 
-export const deleteCountryAction = async (
-    countryId: string
-): Promise<ApiResponse<CountryResponse>> => {
+export const createRoleAction = async (
+    role: RoleModel
+): Promise<ApiResponse<RoleResponse>> => {
 
     try {
 
         const { data } = await personsApi
-            .delete<ApiResponse<CountryResponse>>(
-                `/countries/${countryId}`,
+            .post<ApiResponse<RoleResponse>>(
+                "/role",
+                role
             );
+
         return data;
 
     } catch (error) {

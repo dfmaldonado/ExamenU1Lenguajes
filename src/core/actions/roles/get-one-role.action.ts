@@ -1,19 +1,17 @@
 import { AxiosError } from "axios";
 import { ApiResponse } from "../../../infraestructure/interfaces/api.response";
-import { CountryResponse } from "../../../infraestructure/interfaces/country.response";
 import { ApiErrorResponse } from "../../../infraestructure/interfaces/api-error.response";
 import { personsApi } from "../../api/persons.api";
+import { OneRoleResponse } from "../../../infraestructure/interfaces/one-role.response";
 
-export const deleteCountryAction = async (
-    countryId: string
-): Promise<ApiResponse<CountryResponse>> => {
+export const getOneRoleAction = async (roleId: string):
+    Promise<ApiResponse<OneRoleResponse>> => {
 
     try {
 
         const { data } = await personsApi
-            .delete<ApiResponse<CountryResponse>>(
-                `/countries/${countryId}`,
-            );
+        .get<ApiResponse<OneRoleResponse>>(`/roles/${roleId}`);
+
         return data;
 
     } catch (error) {

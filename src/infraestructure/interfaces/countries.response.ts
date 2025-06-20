@@ -3,5 +3,3 @@ export interface CountryResponse {
     name:       string;
     alphaCode3: string;
 }
-
-//Crear carpeta llamada Action, get.pagination.countries.ts

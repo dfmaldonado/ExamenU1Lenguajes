@@ -1,4 +1,4 @@
-import { Globe, Home, Menu, Users } from "lucide-react";
+import { Globe, Home, LockIcon, Menu, Users } from "lucide-react";
 import { NavLink } from "../shared/NavLink";
 import { useState } from "react";
 import { MobilNavLink } from "../shared/MobilNavLink"
@@ -40,6 +40,7 @@ export const Navbar = () => {
                             <NavLink to="/" active={isActive("/")} text="Inicio" icon={<Home size={18} />} />
                             <NavLink to="/countries" active={isActive("/countries")} text="Países" icon={<Globe size={18} />} />
                             <NavLink to="/persons" active={isActive("/persons")} text="Personas" icon={<Users size={18} />} />
+                            <NavLink to="/role" active={isActive("/role")} text="Roles" icon={<LockIcon size={18} />} />
                         </div>
                         {/* Botón de menu móvil */}
                         <div className="md:hidden flex items-center">
@@ -62,6 +63,7 @@ export const Navbar = () => {
                             <MobilNavLink to="/" active={isActive("/")} icon={<Home size={18} />} text="Inicio" />
                             <MobilNavLink to="/countries" active={isActive("/countries")} icon={<Globe size={18} />} text="Países" />
                             <MobilNavLink to="/persons" active={isActive("/persons")} icon={<Users size={18} />} text="Personas" />
+                            <MobilNavLink to="/role" active={isActive("/role")} icon={<Users size={18} />} text="Roles" />
                         </div>
                     </div>
                 )}

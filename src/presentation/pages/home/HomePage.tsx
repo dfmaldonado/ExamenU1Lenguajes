@@ -1,4 +1,4 @@
-import { Globe, Users } from "lucide-react"
+import { Globe, LockIcon, Users } from "lucide-react"
 import { Title } from "../../components/shared/Title"
 import { DashboardCard } from "../../components/home/DashboardCards"
 import { Loader } from "../../components/shared/Loader"
@@ -34,7 +34,14 @@ if (isLoading) {
           icon={<Users size={48} />}
         />
 
-      </div>
+          <DashboardCard
+          title="Roles"
+          to="/role/create"
+          countValue={data?.data?.roleCount || 0}
+          icon={<LockIcon size={48} />}
+        />
+
+      </div>  
     </div>
   )
 }
