@@ -14,5 +14,5 @@ export const roleValidationsSchema: Yup.ObjectSchema<RoleModel> =
             .max(100, "El nombre debe tener menos de 100 caracteres"),
         description: Yup.string()
             .required("La descripción del rol es requerida.")
-            .length(3, "El código alfanumérico debe tener exactamente 3 caracteres"),
+            .length(15, "No añadir mas de 15 caracteres a su descripción"),
     });

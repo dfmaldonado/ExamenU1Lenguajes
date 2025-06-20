@@ -79,8 +79,7 @@ export const useCountries = (countryId?: string) => {
     // Properties
     page,
     pageSize,
-    searchTerm,
-    countriesPaginationQuery,
+    searchTerm,countriesPaginationQuery,
     oneCountryQuery,
     createCountryMutation,
     editCountryMutation,
